@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 var CustomAssetPlugin = require('./CustomAssetPlugin');
 var AppendCodePlugin = require('./AppendCodePlugin');
+var LogHookPlugin = require('./LogHookPlugin');
+
 
 module.exports = {
   entry: {
@@ -13,11 +15,8 @@ module.exports = {
       new HtmlWebpackPlugin({
       title: 'Output Management'
     }),
-    new CleanWebpackPlugin(['dist']),
-    new CustomAssetPlugin({
-      assetName: 'shiftgig-devs.txt',
-      content: 'FE: xxxxxxxxx BE: xxxxxxxxxx'
-    }),
+    //new CleanWebpackPlugin(['dist']),
+    new CustomAssetPlugin({assetName: 'asset-name.txt', content: 'Asset content'}),
     new AppendCodePlugin(),
     ],
   output: {
